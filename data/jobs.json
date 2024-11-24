@@ -1,0 +1,91 @@
+[
+    {
+        "title": "Junior Backend Developer",
+        "description": "Develop and implement visual solutions for Nokia's internal budget management tool using Java, Spring Boot, and Microservices. Collaborate with cross-functional teams and ensure design consistency.",
+        "company": {
+            "name": "Nokia",
+            "url": "www.nokia.com",
+            "size": "10001+"
+        },
+        "perks_and_benefits": [
+            "Continuous learning opportunities",
+            "Well-being programs",
+            "Employee resource groups",
+            "Mentoring programs",
+            "Inclusive culture"
+        ],
+        "requirements": [
+            "Java",
+            "Gradle",
+            "Spring Boot",
+            "Spring Cloud",
+            "Microservices",
+            "Flowable BPMN",
+            "DMN",
+            "SQL",
+            "Linux",
+            "Git",
+            "Azure DevOps",
+            "Jira",
+            "Fluency in English",
+            "Bachelor's or master\u2019s degree in relevant field"
+        ],
+        "years_of_experience": {
+            "min": 1,
+            "max": 3
+        },
+        "category": "backend developer"
+    },
+    {
+        "title": "Software Developer 2",
+        "description": "Design, develop, troubleshoot, and debug software programs for databases, applications, and networks.  Requires experience in software engineering and Linux systems.  Part of a team maintaining core compute services.",
+        "company": {
+            "name": "Oracle",
+            "url": "https://www.oracle.com/corporate/careers/",
+            "size": "10,001+"
+        },
+        "perks_and_benefits": [],
+        "requirements": [
+            "BS degree in Computer Science or related field",
+            "Understanding of Linux operating systems and administration",
+            "Strong understanding of Linux/Unix commands",
+            "Experience automating tasks with Java, Python, Bash, JavaScript",
+            "Systematic problem-solving approach",
+            "Strong communication skills",
+            "Experience working in an operational environment with mission-critical services"
+        ],
+        "years_of_experience": {
+            "min": 4,
+            "max": -1
+        },
+        "category": "Full stack developer"
+    },
+    {
+        "title": "Software Engineer",
+        "description": "Assists in the design, development, and testing of cloud computing applications. Collaborates with senior engineers to meet client needs.  Requires experience in software development and cloud computing.",
+        "company": {
+            "name": "NetApp",
+            "url": "",
+            "size": "10,001+"
+        },
+        "perks_and_benefits": [
+            "Healthy work-life balance",
+            "Volunteer time off program (40 hours paid)",
+            "Comprehensive benefits (healthcare, life insurance, etc.)",
+            "Educational assistance",
+            "Discounts and perks"
+        ],
+        "requirements": [
+            "Delivering software development specifications",
+            "Building scalable grid systems",
+            "Utilizing automated testing tools",
+            "Collecting and researching customer experience",
+            "Experience with cloud computing platforms"
+        ],
+        "years_of_experience": {
+            "min": 2,
+            "max": -1
+        },
+        "category": "Software Engineer"
+    }
+]

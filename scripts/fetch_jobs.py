@@ -1,0 +1,85 @@
+import sys
+import os
+import argparse
+import json
+from dotenv import load_dotenv
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+
+# Load environment variables from .env file
+load_dotenv()
+
+def fetch_column_from_sheet(spreadsheet_id, range_name, credentials_dict):
+    # Authenticate using the service account credentials from environment variables
+    credentials = service_account.Credentials.from_service_account_info(
+        credentials_dict,
+        scopes=['https://www.googleapis.com/auth/spreadsheets.readonly']
+    )
+
+    # Build the service
+    service = build('sheets', 'v4', credentials=credentials)
+
+    # Call the Sheets API
+    sheet = service.spreadsheets()
+    result = sheet.values().get(
+        spreadsheetId=spreadsheet_id,
+        range=range_name
+    ).execute()
+
+    values = result.get('values', [])
+
+    if not values or len(values) < 2:  # Ensure there is at least a header row and one data row
+        print('No data found in the specified range.')
+        return []
+
+    # Skip the first row (header) and fetch only the data rows
+    column_values = [row[0] for row in values[1:] if row]  # Ensure no empty rows are included
+    return column_values
+
+def parse_and_save_to_json(column_values, filename):
+    todos = []
+    for value in column_values:
+        try:
+            # Remove any wrapping backticks and parse the JSON string
+            value = value.strip("```").strip()
+            todo = json.loads(value)
+            todos.append(todo)
+        except json.JSONDecodeError as e:
+            print(f"Skipping invalid JSON: {value}")
+            print(f"Error: {e}")
+
+    # Save the parsed data to a JSON file
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    with open(filename, 'w') as f:
+        json.dump(todos, f, indent=4)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Fetch a single column from Google Sheets and save to a JSON file.')
+    parser.add_argument('output_filename', nargs='?', default='data/jobs.json', help='Output JSON file path')
+    parser.add_argument('--range-name', default='Sheet1!E:E', help='Range in the spreadsheet to fetch (single column)')
+
+    args = parser.parse_args()
+
+    # Fetch the spreadsheet ID from the .env file
+    spreadsheet_id = os.getenv('SPREADSHEET_ID')
+
+    if not spreadsheet_id:
+        print("Error: SPREADSHEET_ID is not set in the .env file.")
+        sys.exit(1)
+
+    # Read service account keys from environment variables
+    credentials_dict = {
+        "type": "service_account",
+        "project_id": os.getenv('PROJECT_ID'),
+        "private_key_id": os.getenv('PRIVATE_KEY_ID'),
+        "private_key": os.getenv('PRIVATE_KEY').replace('\\n', '\n'),
+        "client_email": os.getenv('CLIENT_EMAIL'),
+        "client_id": os.getenv('CLIENT_ID'),
+        "auth_uri": os.getenv('AUTH_URI'),
+        "token_uri": os.getenv('TOKEN_URI'),
+        "auth_provider_x509_cert_url": os.getenv('AUTH_PROVIDER_CERT_URL'),
+        "client_x509_cert_url": os.getenv('CLIENT_CERT_URL'),
+    }
+
+    column_values = fetch_column_from_sheet(spreadsheet_id, args.range_name, credentials_dict)
+    parse_and_save_to_json(column_values, args.output_filename)

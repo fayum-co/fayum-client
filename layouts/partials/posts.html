@@ -1,0 +1,31 @@
+{{ range .Site.Data.jobs }}
+<div class="job-card check">
+  <h1 class="job-title">{{ .title }}</h1>
+  <div class="company-info">
+    <span class="company-name">{{ .company.name }}</span>
+    <span class="company-size">Company size: {{ .company.size }}</span>
+  </div>
+  <p class="job-description">{{ .description }}</p>
+  <h2 class="section-title">Requirements</h2>
+  <div class="requirements-container">
+    {{- range .requirements }}
+    <span class="requirement-chip">{{ . }}</span>
+    {{- end }}
+  </div>
+  <h2 class="section-title">Perks and Benefits</h2>
+  <ul>
+    {{- range .perks_and_benefits }}
+    <li>{{ . }}</li>
+    {{- end }}
+  </ul>
+  <p class="experience">
+    Experience required: {{ .years_of_experience.min }}-{{
+    .years_of_experience.max }} years
+  </p>
+  <p>Category: {{ .category }}</p>
+  <p>
+    Company website:
+    <a href="https://{{ .company.url }}" target="_blank">{{ .company.url }}</a>
+  </p>
+</div>
+{{ end }}
