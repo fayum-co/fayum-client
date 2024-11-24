@@ -41,16 +41,18 @@ def fetch_column_from_sheet(spreadsheet_id, range_name, credentials_dict):
         sys.exit(1)
 
 def parse_and_save_to_json(column_values, filename):
+    import re
     todos = []
     for value in column_values:
         try:
-            # Remove any wrapping backticks and parse the JSON string
+            # Clean up the JSON string
             value = value.strip("```").strip()
+            value = value.replace("'", "\"")  # Replace single quotes with double quotes
+            value = re.sub(r',\s*([\]}])', r'\1', value)  # Remove trailing commas
             todo = json.loads(value)
             todos.append(todo)
-        except json.JSONDecodeError as e:
-            print(f"Skipping invalid JSON: {value}")
-            print(f"Error: {e}")
+        except json.JSONDecodeError:
+            continue  # Skip invalid JSON entries
 
     # Save the parsed data to a JSON file
     os.makedirs(os.path.dirname(filename), exist_ok=True)
