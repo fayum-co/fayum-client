@@ -4,6 +4,9 @@ import argparse
 import json
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def fetch_column_from_sheet(spreadsheet_id, range_name, credentials_dict):
     try:
@@ -61,7 +64,6 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    # Fetch the spreadsheet ID from environment variables
     spreadsheet_id = os.getenv('SPREADSHEET_ID')
 
     if not spreadsheet_id:
