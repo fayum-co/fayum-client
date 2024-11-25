@@ -1,42 +1,5 @@
 [
     {
-        "title": "Junior Backend Developer",
-        "description": "Develop and implement visual solutions for Nokia's internal budget management tool using Java, Spring Boot, and Microservices. Collaborate with cross-functional teams and ensure design consistency.",
-        "company": {
-            "name": "Nokia",
-            "url": "www.nokia.com",
-            "size": "10001+"
-        },
-        "perks_and_benefits": [
-            "Continuous learning opportunities",
-            "Well-being programs",
-            "Employee resource groups",
-            "Mentoring programs",
-            "Inclusive culture"
-        ],
-        "requirements": [
-            "Java",
-            "Gradle",
-            "Spring Boot",
-            "Spring Cloud",
-            "Microservices",
-            "Flowable BPMN",
-            "DMN",
-            "SQL",
-            "Linux",
-            "Git",
-            "Azure DevOps",
-            "Jira",
-            "Fluency in English",
-            "Bachelor's or master\u2019s degree in relevant field"
-        ],
-        "years_of_experience": {
-            "min": 1,
-            "max": 3
-        },
-        "category": "backend developer"
-    },
-    {
         "title": "Software Developer 2",
         "description": "Design, develop, troubleshoot, and debug software programs for databases, applications, and networks.  Requires experience in software engineering and Linux systems.  Part of a team maintaining core compute services.",
         "company": {
@@ -87,5 +50,28 @@
             "max": -1
         },
         "category": "Software Engineer"
+    },
+    {
+        "title": "System Engineer (OS)",
+        "description": "Seeking a System Engineer with expertise in Windows Server, IIS, MSSQL, Apache Tomcat, and APM tools like BigPanda and Datadog.  Responsibilities include system support, troubleshooting, and implementation.",
+        "company": {
+            "name": "IGT Solutions Pvt Ltd",
+            "url": "https://www.igtsolutions.com/",
+            "size": "25000+"
+        },
+        "perks_and_benefits": [],
+        "requirements": [
+            "Strong knowledge of Windows 2016, 2012, and 2008 server",
+            "Strong knowledge of IIS",
+            "Microsoft Technology Stack \u2013 browser, .NET, IIS 7/8, MSSQL Databases, Apache Tomcat",
+            "Knowledge of DFS and SAN technologies (NetApp)",
+            "Global Active Directory Domain Knowledge",
+            "Knowledge of MSSQL database structure and queries",
+            "Knowledge of Powershell/Batch scripting, Python",
+            "BigPanda, Datadog, AppDynamics APM knowledge",
+            "Understanding of DevOps Practices and Principles"
+        ],
+        "years_of_experience": -1,
+        "category": "System Engineer"
     }
 ]

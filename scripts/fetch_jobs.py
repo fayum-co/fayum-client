@@ -43,18 +43,18 @@ def fetch_column_from_sheet(spreadsheet_id, range_name, credentials_dict):
 def parse_and_save_to_json(column_values, filename):
     import re
     todos = []
-    for value in column_values:
+    for idx, value in enumerate(column_values, start=1):
+        print(f"Row {idx}: {value}")  # Log each row
         try:
-            # Clean up the JSON string
             value = value.strip("```").strip()
-            value = value.replace("'", "\"")  # Replace single quotes with double quotes
-            value = re.sub(r',\s*([\]}])', r'\1', value)  # Remove trailing commas
+            value = value.replace("'", "\"")
+            value = re.sub(r',\s*([\]}])', r'\1', value)
             todo = json.loads(value)
             todos.append(todo)
-        except json.JSONDecodeError:
-            continue  # Skip invalid JSON entries
+        except json.JSONDecodeError as e:
+            print(f"Failed to parse JSON on Row {idx}: {value}\nError: {e}")
+            continue
 
-    # Save the parsed data to a JSON file
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, 'w') as f:
         json.dump(todos, f, indent=4)
@@ -62,7 +62,7 @@ def parse_and_save_to_json(column_values, filename):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Fetch a single column from Google Sheets and save to a JSON file.')
     parser.add_argument('output_filename', nargs='?', default='data/jobs.json', help='Output JSON file path')
-    parser.add_argument('--range-name', default='Sheet1!E:E', help='Range in the spreadsheet to fetch (single column)')
+    parser.add_argument('--range-name', default='list_of_jobs!E:E', help='Range in the spreadsheet to fetch (single column)')
 
     args = parser.parse_args()
 
