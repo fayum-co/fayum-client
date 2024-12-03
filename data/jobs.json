@@ -1,77 +1,113 @@
 [
-    {
-        "title": "Software Developer 2",
-        "description": "Design, develop, troubleshoot, and debug software programs for databases, applications, and networks.  Requires experience in software engineering and Linux systems.  Part of a team maintaining core compute services.",
-        "company": {
-            "name": "Oracle",
-            "url": "https://www.oracle.com/corporate/careers/",
-            "size": "10,001+"
-        },
-        "perks_and_benefits": [],
-        "requirements": [
-            "BS degree in Computer Science or related field",
-            "Understanding of Linux operating systems and administration",
-            "Strong understanding of Linux/Unix commands",
-            "Experience automating tasks with Java, Python, Bash, JavaScript",
-            "Systematic problem-solving approach",
-            "Strong communication skills",
-            "Experience working in an operational environment with mission-critical services"
-        ],
-        "years_of_experience": {
-            "min": 4,
-            "max": -1
-        },
-        "category": "Full stack developer"
+  {
+    "title": "Software Engineer",
+    "description": "NetApp seeks a Software Engineer to assist in designing, developing, and testing cloud computing applications.  Collaborate with senior engineers to meet client needs. Responsibilities include delivering software specifications, building scalable grid systems, utilizing automated testing tools, and reporting on customer experiences. Minimum 2 years of related experience required.",
+    "overview": "Develop and test cloud computing applications, collaborating with senior engineers to meet client needs.",
+    "requirements": [
+      "2+ years of related experience",
+      "Software Development",
+      "Python (Programming Language)",
+      "Object-Oriented Programming (OOP)",
+      "HTML",
+      "Cascading Style Sheets (CSS)",
+      "Analytical Skills",
+      "Research Skills",
+      "Computing"
+    ],
+    "good_to_have_requirements": ["ASP.NET"],
+    "min_years_of_experience": 2,
+    "max_years_of_experience": -1,
+    "domain": "software_engineer",
+    "company": {
+      "name": "NetApp",
+      "url": "",
+      "size": "10,001+ employees",
+      "sector": "Software Development"
     },
-    {
-        "title": "Software Engineer",
-        "description": "Assists in the design, development, and testing of cloud computing applications. Collaborates with senior engineers to meet client needs.  Requires experience in software development and cloud computing.",
-        "company": {
-            "name": "NetApp",
-            "url": "",
-            "size": "10,001+"
-        },
-        "perks_and_benefits": [
-            "Healthy work-life balance",
-            "Volunteer time off program (40 hours paid)",
-            "Comprehensive benefits (healthcare, life insurance, etc.)",
-            "Educational assistance",
-            "Discounts and perks"
-        ],
-        "requirements": [
-            "Delivering software development specifications",
-            "Building scalable grid systems",
-            "Utilizing automated testing tools",
-            "Collecting and researching customer experience",
-            "Experience with cloud computing platforms"
-        ],
-        "years_of_experience": {
-            "min": 2,
-            "max": -1
-        },
-        "category": "Software Engineer"
+    "salary": {
+      "min": -1,
+      "max": -1
     },
-    {
-        "title": "System Engineer (OS)",
-        "description": "Seeking a System Engineer with expertise in Windows Server, IIS, MSSQL, Apache Tomcat, and APM tools like BigPanda and Datadog.  Responsibilities include system support, troubleshooting, and implementation.",
-        "company": {
-            "name": "IGT Solutions Pvt Ltd",
-            "url": "https://www.igtsolutions.com/",
-            "size": "25000+"
-        },
-        "perks_and_benefits": [],
-        "requirements": [
-            "Strong knowledge of Windows 2016, 2012, and 2008 server",
-            "Strong knowledge of IIS",
-            "Microsoft Technology Stack \u2013 browser, .NET, IIS 7/8, MSSQL Databases, Apache Tomcat",
-            "Knowledge of DFS and SAN technologies (NetApp)",
-            "Global Active Directory Domain Knowledge",
-            "Knowledge of MSSQL database structure and queries",
-            "Knowledge of Powershell/Batch scripting, Python",
-            "BigPanda, Datadog, AppDynamics APM knowledge",
-            "Understanding of DevOps Practices and Principles"
-        ],
-        "years_of_experience": -1,
-        "category": "System Engineer"
-    }
+    "perks_and_benefits": [
+      "Comprehensive benefits (health care, life and accident plans, emotional support resources, legal services, financial savings programs)",
+      "40 hours of paid volunteer time off annually",
+      "Educational assistance",
+      "Discounts and perks"
+    ],
+    "job_type": "full_time",
+    "location": "Bengaluru, Karnataka, India"
+  },
+  {
+    "title": "System Engineer (OS)",
+    "description": "IGT Solutions seeks a System Engineer with strong Windows server (2008-2016), IIS, .NET, MSSQL, Apache Tomcat, and APM (BigPanda, Datadog, AppDynamics) expertise.  Responsibilities include platform support, implementation, troubleshooting, performance tuning, and application migration across Windows OS platforms.  Experience with DevOps, scripting (Powershell/Batch, Python), DFS, SAN, Active Directory, and multi-datacenter environments is crucial.  The role involves collaborating with various teams and designing/documenting enterprise standards.",
+    "overview": "System Engineer responsible for platform support, implementation, and troubleshooting using Windows Server and various technologies.",
+    "requirements": [
+      "Strong knowledge of Windows Server 2008, 2012, and 2016",
+      "Experience with IIS (virtual directory, app pool configuration)",
+      "Experience with .NET, Apache Tomcat, and MSSQL Databases",
+      "Experience with BigPanda, Datadog, and AppDynamics APM tools",
+      "Knowledge of DFS and SAN technologies (NetApp)",
+      "Global Active Directory Domain knowledge",
+      "Multi-Data Center, Multi-Zone Environment familiarity",
+      "Experience with MSSQL database structure and queries",
+      "Knowledge of MSSQL Cluster Environments",
+      "Ability to troubleshoot Network/Firewall issues",
+      "Understanding of Domain Name System (DNS)",
+      "Experience with Powershell/Batch scripting, Python",
+      "Understanding of DevOps Practices and Principles",
+      "BS/BA in Information Technology or Business, or equivalent experience"
+    ],
+    "good_to_have_requirements": [
+      "Experience with Application Migration to Different Windows OS Platforms (2012, 2016, 2019, 2022)"
+    ],
+    "min_years_of_experience": -1,
+    "max_years_of_experience": -1,
+    "domain": "software_engineer",
+    "company": {
+      "name": "IGT Solutions Pvt Ltd",
+      "url": "https://www.igtsolutions.com/careers/",
+      "size": "25000+",
+      "sector": "Technology"
+    },
+    "salary": {
+      "min": -1,
+      "max": -1
+    },
+    "perks_and_benefits": [],
+    "job_type": "full_time",
+    "location": "Remote"
+  },
+  {
+    "title": "Frontend Developer",
+    "description": "Jio, a leading Indian telecom operator, seeks a Mid-Level Frontend Developer for its Bengaluru office.  Responsibilities include developing and maintaining user interfaces using HTML, CSS, JavaScript, and frameworks like React, Angular, or Vue.js.  The ideal candidate will have strong expertise in JavaScript (ES6+), React (hooks, Redux), and responsive design, along with a solid understanding of UI/UX principles.  Collaboration with designers and backend developers is crucial.  The role requires optimizing applications for speed and scalability and staying updated on frontend technologies.",
+    "overview": "Mid-level Frontend Developer at Jio in Bengaluru, building and maintaining user interfaces using React, Angular, or Vue.js.",
+    "requirements": [
+      "Experience with React (hooks, Redux)",
+      "Strong expertise in JavaScript (ES6+)",
+      "Proficient in HTML (DOM manipulation)",
+      "Solid understanding of CSS (SASS/SCSS)",
+      "Experience in responsive design",
+      "Understanding of UI/UX design principles"
+    ],
+    "good_to_have_requirements": [
+      "Familiarity with Angular",
+      "Knowledge of Vue.js"
+    ],
+    "min_years_of_experience": 3,
+    "max_years_of_experience": -1,
+    "domain": "frontend_developer",
+    "company": {
+      "name": "Jio",
+      "url": "http://jio.com/platforms",
+      "size": "Over 400 million customers",
+      "sector": "Media & Telecommunications"
+    },
+    "salary": {
+      "min": -1,
+      "max": -1
+    },
+    "perks_and_benefits": [],
+    "job_type": "full_time",
+    "location": "Bengaluru, Karnataka, India"
+  }
 ]

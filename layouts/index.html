@@ -2,6 +2,15 @@
 <html lang="en">
   {{ partial "header.html" .}}
   <body>
-    {{ partial "posts.html" . }}
+   <ul>
+    {{ range .Pages }}
+      <li>
+      {{ partial "post.html" .}}
+      </li>
+    {{ end }}
+  </ul>
   </body>
 </html>
+
+
+

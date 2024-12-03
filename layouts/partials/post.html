@@ -1,0 +1,13 @@
+<article class="md:w-10/12 lg:w-9/12">
+    <h3>
+      <a
+        href="{{ .RelPermalink }}"
+        class="hover:text-brick inline-block no-underline decoration-from-font focus-visible:text-brick hover:underline"
+        >{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}</a
+      >
+    </h3>
+  
+    <div class="font-normal pt-2 space-x-1 text-sm">
+      <span>{{ dateFormat "Jan 2, 2006" .Date }}</span>
+    </div>
+  </article>
