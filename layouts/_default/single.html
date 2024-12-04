@@ -23,10 +23,7 @@
                 {{ .Params.location | default "Not Specified" }}
             </div>
 
-            <div class="job-type">
-                <strong>Job Type:</strong> 
-                {{ .Params.job_type | default "Full-time" | title }}
-            </div>
+          
 
             <div class="company-details">
                 {{ if .Params.company.size }}

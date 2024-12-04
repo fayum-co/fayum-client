@@ -33,7 +33,7 @@ perks_and_benefits:
   - 40 hours of paid volunteer time off annually
   - Educational assistance
   - Discounts and perks
-job_type: "full_time"
+job_type: ["full_time"]
 categories: ["Jobs"] 
 tags:
   - "software_engineer" 

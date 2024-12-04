@@ -1,13 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
- * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
- }
+ul {
+  padding-left: 10px;
+}
+article {
+  padding: 10px 0;
+}
 
- ul {
-   padding-left: 10px;
- }
-  article {
-   padding: 10px 0 ;
-  }
+.wrapper {
+  padding-top: 30px !important;
+}

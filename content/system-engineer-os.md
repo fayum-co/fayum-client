@@ -35,7 +35,7 @@ good_to_have_requirements:
   - Experience with Application Migration to Different Windows OS Platforms (2012, 2016, 2019, 2022)
 perks_and_benefits:
 
-job_type: "full_time"
+job_type: ["full_time", "part_time"]
 categories: ["Jobs"]  # Taxonomy for categorization
 tags:
   - "software_engineer"  # Tags can include the domain or other identifiers

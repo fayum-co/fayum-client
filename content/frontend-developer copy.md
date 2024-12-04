@@ -1,5 +1,5 @@
 ---
-title: "Frontend Developer"
+title: "Frontend Developer with some dummy data"
 description: "Jio, a leading Indian telecom operator, seeks a Mid-Level Frontend Developer for its Bengaluru office.  Responsibilities include developing and maintaining user interfaces using HTML, CSS, JavaScript, and frameworks like React, Angular, or Vue.js.  The ideal candidate will have strong expertise in JavaScript (ES6+), React (hooks, Redux), and responsive design, along with a solid understanding of UI/UX principles.  Collaboration with designers and backend developers is crucial.  The role requires optimizing applications for speed and scalability and staying updated on frontend technologies."
 date: "2024-12-03" # Replace with dynamic date if needed
 draft: false

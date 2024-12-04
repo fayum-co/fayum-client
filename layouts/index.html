@@ -9,6 +9,28 @@
       </li>
     {{ end }}
   </ul>
+
+  <div class="taxonomy-terms-container">
+    
+    {{ $taxonomies := .Site.Taxonomies }}
+    
+    {{ range $taxonomyName, $taxonomy := $taxonomies }}
+      <div class="taxonomy-section">
+        <h2>{{ $taxonomyName | title }}</h2>
+        <ul>
+          {{ range $term, $pages := $taxonomy }}
+            <li>
+              <a href="/{{ $taxonomyName }}/{{ $term | urlize }}/">
+                {{ $term | title }} ({{ len $pages }})
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  </div>
+
+  
   </body>
 </html>
 
