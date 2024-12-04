@@ -1,0 +1,14 @@
+{{ $maxExperience := .Get "max_experience" | default 0 | int }}
+
+<ul>
+  {{ $jobs := where .Site.RegularPages "Type" "job" }}
+  {{ $filteredJobs := where $jobs "Params.experience.max" "le" $maxExperience }}
+  {{ range $filteredJobs }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      — Max Experience: {{ .Params.experience.max }} years
+    </li>
+  {{ else }}
+    <li>No jobs found requiring at least {{ $maxExperience }} years of experience.</li>
+  {{ end }}
+</ul>
