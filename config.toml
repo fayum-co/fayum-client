@@ -1,8 +1,17 @@
 baseURL = 'http://fayum.org/'
 languageCode = 'en-us'
-title = 'my site title'
+title = 'fayum'
+
 
 [taxonomies]
-category = "categories"
-tag = "tags"
-job_type = "job_type"
+    category = "categories"
+    tag = "tags"
+    job_type = "job_type"
+
+[params]
+    title = 'fayum'
+    description = "Explore your next career opportunity at Fayum"
+    ogImage = "dummy"
+    favicon = "dummy_for_favicon"
+    [author]
+        name = "fayum developer"

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   {{ partial "header.html" .}}
+  {{ partial "seo.html" }}
   <body>
    <ul>
     {{ range .Pages }}
@@ -29,6 +30,16 @@
       </div>
     {{ end }}
   </div>
+  <h1>range of experience</h1>
+  <ul>
+    {{ $jobs := where .Site.RegularPages "Type" "experience" }}
+    {{ range $jobs }}
+   <li>
+    <a href="{{ .Permalink }}">{{ .LinkTitle  }}</a>
+   </li>
+
+    {{ end }}
+  </ul>
   </body>
 </html>
 

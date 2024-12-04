@@ -1,0 +1,131 @@
+<div class="job-listing container mx-auto px-4 py-8">
+    <div class="job-header mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">
+            {{ .Title | default "Job Position" }}
+        </h1>
+        
+        <div class="job-meta mt-4 text-gray-600">
+            {{ if .Params.company.name }}
+                <div class="company-name">
+                    <strong>Company:</strong> 
+                    {{ with .Params.company.url }}
+                        <a href="{{ . }}" target="_blank" class="text-blue-600 hover:underline">
+                            {{ $.Params.company.name }}
+                        </a>
+                    {{ else }}
+                        {{ .Params.company.name }}
+                    {{ end }}
+                </div>
+            {{ end }}
+
+            <div class="job-location">
+                <strong>Location:</strong> 
+                {{ .Params.location | default "Not Specified" }}
+            </div>
+
+          
+
+            <div class="company-details">
+                {{ if .Params.company.size }}
+                    <strong>Company Size:</strong> {{ .Params.company.size }}
+                {{ end }}
+                {{ if .Params.company.sector }}
+                    <strong>Sector:</strong> {{ .Params.company.sector }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+    <div class="job-description prose max-w-none">
+        <h2 class="text-2xl font-semibold mb-4">Job Description</h2>
+        {{ .Params.description | default "No description available." | markdownify }}
+    </div>
+
+    <div class="job-requirements mt-8">
+        <h2 class="text-2xl font-semibold mb-4">Requirements</h2>
+        {{ if .Params.requirements }}
+            <ul class="list-disc list-inside">
+                {{ range .Params.requirements }}
+                    <li>{{ . }}</li>
+                {{ end }}
+            {{ else }}
+                <p>No specific requirements listed.</p>
+            {{ end }}
+    </div>
+
+    {{ if .Params.good_to_have_requirements }}
+        <div class="good-to-have mt-6">
+            <h2 class="text-2xl font-semibold mb-4">Good to Have</h2>
+            <ul class="list-disc list-inside">
+                {{ range .Params.good_to_have_requirements }}
+                    <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+        </div>
+    {{ end }}
+
+    <div class="job-experience mt-6">
+        <h2 class="text-2xl font-semibold mb-4">Experience</h2>
+        <p>
+            {{ if and .Params.experience.min (ne .Params.experience.min -1) }}
+                Minimum {{ .Params.experience.min }} years experience
+            {{ end }}
+            
+            {{ if and .Params.experience.max (ne .Params.experience.max -1) }}
+                {{ if .Params.experience.min }}to{{ end }} 
+                {{ if ne .Params.experience.max -1 }}
+                    {{ .Params.experience.max }} years
+                {{ else }}
+                    No upper limit
+                {{ end }}
+            {{ else if .Params.experience.min }}
+                years and above
+            {{ else }}
+                Experience requirements not specified
+            {{ end }}
+        </p>
+    </div>
+
+    <div class="salary-info mt-6">
+        <h2 class="text-2xl font-semibold mb-4">Salary</h2>
+        <p>
+            {{ if and .Params.salary.min (ne .Params.salary.min -1) }}
+                Minimum: ₹{{ .Params.salary.min | lang.NumFormat 2 }}
+            {{ end }}
+            
+            {{ if and .Params.salary.max (ne .Params.salary.max -1) }}
+                {{ if .Params.salary.min }}to{{ end }}
+                Maximum: ₹{{ .Params.salary.max | lang.NumFormat 2 }}
+            {{ else }}
+                Salary not specified
+            {{ end }}
+        </p>
+    </div>
+
+    <div class="application-cta mt-8 text-center">
+        <a href="#apply" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+            Apply for this Position
+        </a>
+    </div>
+
+    <div class="additional-info mt-6 text-gray-600">
+        <p>Posted on: {{ .Date.Format "January 2, 2006" }}</p>
+        {{ if .Params.categories }}
+            <div class="categories">
+                <strong>Categories:</strong>
+                {{ delimit .Params.categories ", " }}
+            </div>
+        {{ end }}
+        
+        {{ if .Params.tags }}
+            <div class="tags mt-2">
+                <strong>Tags:</strong>
+                {{ range .Params.tags }}
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm mr-2 mb-2">
+                        {{ . }}
+                    </span>
+                {{ end }}
+            </div>
+        {{ end }}
+    </div>
+</div>

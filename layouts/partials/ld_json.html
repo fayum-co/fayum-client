@@ -1,0 +1,50 @@
+<script type="application/ld+json">
+    {
+         "@context": "https://schema.org/",
+         "@type": "Article",
+         "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "{{ .Site.BaseURL}}"
+         },
+         "headline": "{{ .Site.Title }}",
+         "description": "{{ .Site.Params.Description}}",
+         "image": {
+           "@type": "ImageObject",
+           "url": "{{ .Site.Params.Album  }}",
+           "width": 1200,
+           "height": 600
+         },
+         "datePublished": "2023-05-30",
+         "dateModified":"{{ now.Format "2006-01-02" }}",
+         "author": {
+           "@type": "Person",
+           "name": "{{.Site.Author.name}}",
+           "url": "{{.Site.Author.url}}",
+           "sameAs": [
+             "{{ .Site.Author.github}}",
+             "{{ .Site.Author.linkedin}}",
+             "{{ .Site.Author.twitter}}",
+           ],
+           "image": {
+             "@type": "ImageObject",
+             "url": "{{ .Site.Author.profile }}",
+             "width": 500,
+             "height": 500
+           },
+           "jobTitle": "",
+           "worksFor": {
+             "@type": "Organization",
+             "name": "",
+           },
+           "description": "{{ .Site.Author.profileDesc}}",
+           "email": "{{ .Site.Author.email}}",
+           "telephone":"{{.Site.Author.phone}}",
+         },
+         "url": "{{.Site.BaseURL}}",
+         "sameAs": [
+         "{{ .Site.Author.github}}",
+         "{{ .Site.Author.linkedin}}",
+         "{{ .Site.Author.twitter}}",
+       ],
+       }
+</script>

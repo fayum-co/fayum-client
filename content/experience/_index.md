@@ -1,10 +1,4 @@
 ---
 description: "Explore trending jobs sorted as per experience.Find your next career opportunity on Fayum"
-title: "Experience 4+ years | fayum"
-linkTitle: "Upto four years"
-
+title: "Experiences | fayum"
 ---
-
-
-
-{{< joblist_min min_experience=4 >}}

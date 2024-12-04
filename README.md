@@ -18,3 +18,10 @@ client side listing of all the jobs listing
     - when we go on the page, the page should be rendering the pages with min and max experience for that.
     - same goes in the max salary too.
 - 
+
+
+
+# tasks
+- put the OG url image for all the pages
+- add a sitemap file xml format
+- include the json schema for this.

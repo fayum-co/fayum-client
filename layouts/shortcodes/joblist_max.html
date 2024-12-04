@@ -1,5 +1,6 @@
 {{ $maxExperience := .Get "max_experience" | default 0 | int }}
 
+<h2>Jobs Requiring at Most {{ $maxExperience }} Years of Experience</h2>
 <ul>
   {{ $jobs := where .Site.RegularPages "Type" "job" }}
   {{ $filteredJobs := where $jobs "Params.experience.max" "le" $maxExperience }}
@@ -9,6 +10,10 @@
       — Max Experience: {{ .Params.experience.max }} years
     </li>
   {{ else }}
-    <li>No jobs found requiring at least {{ $maxExperience }} years of experience.</li>
+    <li>No jobs found requiring at most {{ $maxExperience }} years of experience.</li>
   {{ end }}
+</ul>
+
+
+
 </ul>

@@ -1,12 +1,14 @@
 
 
 <!DOCTYPE html>
+{{ partial "header.html" .}}
+{{ partial "seo.html" .}}
 
 
-<body class="bg-light-gray">
+<body class="bg-light-gray" style="border: 1px solid red;">
 
 
-    {{ partial "header.html" .}}
+ 
 
     {{ $name := lower  .Name  }}
         <h1>{{ $name }}</h1>
