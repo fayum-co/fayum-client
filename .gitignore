@@ -1,3 +1,4 @@
 scripts/sheet_keys.json
 scripts/.env 
 prompts
+node_modules

@@ -1,131 +1,188 @@
-<div class="job-listing container mx-auto px-4 py-8">
-    <div class="job-header mb-8">
-        <h1 class="text-3xl font-bold text-gray-900">
-            {{ .Title | default "Job Position" }}
-        </h1>
-        
-        <div class="job-meta mt-4 text-gray-600">
-            {{ if .Params.company.name }}
-                <div class="company-name">
-                    <strong>Company:</strong> 
-                    {{ with .Params.company.url }}
-                        <a href="{{ . }}" target="_blank" class="text-blue-600 hover:underline">
-                            {{ $.Params.company.name }}
-                        </a>
-                    {{ else }}
-                        {{ .Params.company.name }}
-                    {{ end }}
-                </div>
-            {{ end }}
+<div class="p-8">
+  <span class="text-4xl font-medium text-green">{{ .Title }}</span>
+  <div class="flex flex-col gap-2.5 pt-6 flex-wrap">
+    <div class="flex items-center gap-3">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="#171717"
+        class="size-4"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
+        />
+      </svg>
 
-            <div class="job-location">
-                <strong>Location:</strong> 
-                {{ .Params.location | default "Not Specified" }}
-            </div>
-
-          
-
-            <div class="company-details">
-                {{ if .Params.company.size }}
-                    <strong>Company Size:</strong> {{ .Params.company.size }}
-                {{ end }}
-                {{ if .Params.company.sector }}
-                    <strong>Sector:</strong> {{ .Params.company.sector }}
-                {{ end }}
-            </div>
-        </div>
+      {{ $processed := slice }}
+      {{ range .Params.job_type }}
+        {{ $processed = $processed | append (humanize .) }}
+      {{ end }}
+      {{ $result := delimit $processed ", " }}
+      <span class="text-sm text-black text-opacity-70 ">{{ $result }}</span>
     </div>
-
-    <div class="job-description prose max-w-none">
-        <h2 class="text-2xl font-semibold mb-4">Job Description</h2>
-        {{ .Params.description | default "No description available." | markdownify }}
+    <div class="flex items-center gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#171717" class="size-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
+      </svg>
+      <span class="text-sm text-black text-opacity-70 ">
+        {{ if and .Params.salary.min (ne .Params.salary.min -1) .Params.salary.max (ne .Params.salary.max -1) }}
+            ₹{{ .Params.salary.min }}-{{ .Params.salary.max }}
+        {{ else if and .Params.salary.min (ne .Params.salary.min -1) }}
+            ₹{{ .Params.salary.min }}
+        {{ else if and .Params.salary.max (ne .Params.salary.max -1) }}
+            ₹{{ .Params.salary.max }}
+        {{ else }}
+            Not specified
+        {{ end }}
+    </span>
     </div>
-
-    <div class="job-requirements mt-8">
-        <h2 class="text-2xl font-semibold mb-4">Requirements</h2>
-        {{ if .Params.requirements }}
-            <ul class="list-disc list-inside">
-                {{ range .Params.requirements }}
-                    <li>{{ . }}</li>
-                {{ end }}
-            {{ else }}
-                <p>No specific requirements listed.</p>
-            {{ end }}
+    <div class="flex items-center gap-3">
+      <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#171717"
+      class="size-4"
+      >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"
+      />
+      </svg>
+      <span class="text-sm text-black text-opacity-70">
+        {{ if and .Params.experience.min (ne .Params.experience.min -1) .Params.experience.max (ne .Params.experience.max -1) }}
+            {{ .Params.experience.min }}-{{ .Params.experience.max }} years
+        {{ else if and .Params.experience.min (ne .Params.experience.min -1) }}
+            {{ .Params.experience.min }} {{ if eq .Params.experience.min 1 }}year{{ else }}years{{ end }}
+        {{ else if and .Params.experience.max (ne .Params.experience.max -1) }}
+            {{ .Params.experience.max }} {{ if eq .Params.experience.max 1 }}year{{ else }}years{{ end }}
+        {{ else }}
+            Not specified
+        {{ end }}
+      </span>
     </div>
+    <div class="flex items-center gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#171717" class="size-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+      </svg>
+      <span class="text-sm text-black text-opacity-70">
+        {{ if .Params.Location}}
+          {{ .Params.Location}}
+        {{ else }}
+        Not specified
+        {{ end }}
+      </span>
+    </div>
+    <div class="flex items-center gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"       stroke="#171717"
+      class="size-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+      </svg>
+      <p class="text-sm text-black text-opacity-70">Posted on: {{ .Date.Format "January 2, 2006" }}</p>  
+    </div>
+</div>
+</div>
 
-    {{ if .Params.good_to_have_requirements }}
-        <div class="good-to-have mt-6">
-            <h2 class="text-2xl font-semibold mb-4">Good to Have</h2>
-            <ul class="list-disc list-inside">
-                {{ range .Params.good_to_have_requirements }}
-                    <li>{{ . }}</li>
-                {{ end }}
-            </ul>
-        </div>
+<div class="border-t-1 grid gap-3 border-solid border-gray-300 p-8">
+  <span class="font-medium text-2xl">About the role:</span>
+  <span class="text-base leading-[1.8] text-black text-opacity-70 w-11/12"
+    >{{ .Description}}</span
+  >
+</div>
+
+<div class="border-t-1 grid gap-3 border-solid border-gray-300 p-8">
+  <span class="font-medium text-2xl">You must have:</span>
+
+  {{ if .Params.requirements }}
+  <ul class="list-disc list-inside">
+    {{ range .Params.requirements }}
+    <li class="text-base leading-[1.8] text-black text-opacity-70 w-11/12">
+      {{ . | safeHTML }}
+    </li>
     {{ end }}
+  </ul>
+  {{ else }}
+  <p class="text-base font-medium">No specific requirements listed.</p>
+  {{ end }}
+</div>
 
-    <div class="job-experience mt-6">
-        <h2 class="text-2xl font-semibold mb-4">Experience</h2>
-        <p>
-            {{ if and .Params.experience.min (ne .Params.experience.min -1) }}
-                Minimum {{ .Params.experience.min }} years experience
-            {{ end }}
-            
-            {{ if and .Params.experience.max (ne .Params.experience.max -1) }}
-                {{ if .Params.experience.min }}to{{ end }} 
-                {{ if ne .Params.experience.max -1 }}
-                    {{ .Params.experience.max }} years
-                {{ else }}
-                    No upper limit
-                {{ end }}
-            {{ else if .Params.experience.min }}
-                years and above
-            {{ else }}
-                Experience requirements not specified
-            {{ end }}
-        </p>
-    </div>
+<div class="border-t-1 grid gap-3 border-solid border-gray-300 p-8">
+  <span class="font-medium text-2xl">Good to have:</span>
 
-    <div class="salary-info mt-6">
-        <h2 class="text-2xl font-semibold mb-4">Salary</h2>
-        <p>
-            {{ if and .Params.salary.min (ne .Params.salary.min -1) }}
-                Minimum: ₹{{ .Params.salary.min | lang.NumFormat 2 }}
-            {{ end }}
-            
-            {{ if and .Params.salary.max (ne .Params.salary.max -1) }}
-                {{ if .Params.salary.min }}to{{ end }}
-                Maximum: ₹{{ .Params.salary.max | lang.NumFormat 2 }}
-            {{ else }}
-                Salary not specified
-            {{ end }}
-        </p>
-    </div>
+  {{ if .Params.good_to_have_requirements }}
+  <ul class="list-disc list-inside">
+    {{ range .Params.good_to_have_requirements }}
+    <li class="text-base leading-[1.8] text-black text-opacity-70 w-11/12">
+      {{ . | safeHTML }}
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="text-base font-medium">No specific requirements listed.</p>
+  {{ end }}
+</div>
 
-    <div class="application-cta mt-8 text-center">
-        <a href="#apply" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-            Apply for this Position
-        </a>
-    </div>
+<div class="border-t-1 grid gap-3 border-solid border-gray-300 p-8">
+  <span class="font-medium text-2xl">Perks & benefits:</span>
 
-    <div class="additional-info mt-6 text-gray-600">
-        <p>Posted on: {{ .Date.Format "January 2, 2006" }}</p>
-        {{ if .Params.categories }}
-            <div class="categories">
-                <strong>Categories:</strong>
-                {{ delimit .Params.categories ", " }}
-            </div>
-        {{ end }}
-        
-        {{ if .Params.tags }}
-            <div class="tags mt-2">
-                <strong>Tags:</strong>
-                {{ range .Params.tags }}
-                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm mr-2 mb-2">
-                        {{ . }}
-                    </span>
-                {{ end }}
-            </div>
-        {{ end }}
-    </div>
+  {{ if .Params.perks_and_benefits }}
+  <ul class="list-disc list-inside">
+    {{ range .Params.perks_and_benefits }}
+    <li class="text-base leading-[1.8] text-black text-opacity-70 w-11/12">
+      {{ . | safeHTML }}
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="text-base font-medium">No specific benefits listed.</p>
+  {{ end }}
+</div>
+
+<div class="border-t-1 grid gap-3 border-solid border-gray-300 p-8">
+  <span class="font-medium text-2xl">Tags:</span>
+  {{ if .Params.tags }}
+  <ul class="list-none pt-2">
+    {{ range .Params.tags }}
+    <li class="text-base leading-[1.8] text-black text-opacity-80 w-11/12">
+      <span class="bg-gray-100 rounded-full border-1 bodrer-solid border-gray-200 px-5 py-1.5 text-sm">{{ . | humanize }}</span>
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="text-base font-medium">No specific tags listed.</p>
+  {{ end }}
+</div>
+
+<div class="border-t-1 border-solid border-gray-300 p-8">
+  <div class="grid place-content-end">
+    <a
+      href="https://www.linkedin.com/feed/"
+      target="_blank"
+      class="bg-green py-2.5 hover:ring-2 ring-green transition-all ring-offset-0 hover:ring-offset-2 px-16 rounded-full focus-visible:outline-green outline-offset-2 text-white font-medium text-lg"
+    >
+      Apply now
+    </a>
+  </div>
+  <div class="pt-12 pb-10 w-11/12">
+    <span class="italic text-black text-opacity-70"
+      >*Fayum is an independent platform dedicated to providing information
+      about job openings. We are not affiliated with, nor do we represent, any
+      company, agency, or agent mentioned in the job listings. Please refer to
+      our
+      <a
+        href="/terms-of-service"
+        target="_blank"
+        class="font-semibold underline underline-offset-4"
+        >Terms of Services</a
+      >
+      for further details.</span
+    >
+  </div>
 </div>

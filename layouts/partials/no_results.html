@@ -1,0 +1,11 @@
+<div class="grid place-content-center place-items-center">
+    <div class="grid place-content-center place-items-center" >
+        <img src="/images/404.svg" height="400" width="400" alt="no results found - fayum">
+    </div>
+    <div class="max-w-[400px] mx-auto text-center grid place-content-center place-items-center pt-6">
+        <p class='font-medium text-2xl'>{{ .message }}</p>
+        {{ if .description}}
+            <p>{{ .description }} </p>
+        {{ end }}
+    </div>
+</div>

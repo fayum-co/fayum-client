@@ -14,8 +14,8 @@ experience:
   min: 2
   max: -1
 salary:
-  min: -1
-  max: -1
+  min:  100000
+  max: 200000
 requirements:
   - 2+ years of related experience
   - Software Development

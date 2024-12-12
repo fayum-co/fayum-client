@@ -20,7 +20,7 @@ requirements:
   - Strong knowledge of Windows Server 2008, 2012, and 2016
   - Experience with IIS (virtual directory, app pool configuration)
   - Experience with .NET, Apache Tomcat, and MSSQL Databases
-  - Experience with BigPanda, Datadog, and AppDynamics APM tools
+  - Experience with BigPanda, <strong>Datadog</strong>, and AppDynamics APM tools
   - Knowledge of DFS and SAN technologies (NetApp)
   - Global Active Directory Domain knowledge
   - Multi-Data Center, Multi-Zone Environment familiarity

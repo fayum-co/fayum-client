@@ -1,14 +1,11 @@
 {{ $minExperience := .Get "min_experience" | default 0 | int }}
 
-<ul>
+<div  class="p-6 gap-6 min-h-[500px] grid flex-1">
   {{ $jobs := where .Site.RegularPages "Type" "job" }}
   {{ $filteredJobs := where $jobs "Params.experience.min" "ge" $minExperience }}
   {{ range $filteredJobs }}
-    <li>
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
-      — Min Experience: {{ .Params.experience.min }} years
-    </li>
+  {{ partial "post.html" .}}
   {{ else }}
-    <li>No jobs found requiring at least {{ $minExperience }} years of experience.</li>
+  {{ partial "no_results" (dict "message" "No items found!" "otherContext" .) }}
   {{ end }}
-</ul>
+</div>

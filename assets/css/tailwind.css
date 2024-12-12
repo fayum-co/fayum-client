@@ -1,0 +1,33 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.d {
+    border: 1px solid red !important;
+}
+
+@font-face {
+    font-family: 'check';
+    font-style: normal;
+    font-weight:  400;
+    src: url("/fonts/Matter-Regular.ttf"),
+  }
+
+
+  html, body {
+    background-color:  #FAFAFA;
+}
+
+
+
+.text-anchor {
+  @apply underline underline-offset-4 hover:text-green outline-offset-4
+}
+
+.text-anchor-hover {
+  @apply hover:underline underline-offset-4 hover:text-green outline-offset-4
+}
+

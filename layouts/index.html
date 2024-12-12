@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  {{ partial "header.html" .}}
-  {{ partial "seo.html" }}
+  {{ partial "header.html" .}} {{ partial "seo.html" }}
   <body>
-   <ul>
-    {{ range .Pages }}
-      <li>
-      {{ partial "post.html" .}}
-      </li>
-    {{ end }}
-  </ul>
-
-  <div class="taxonomy-terms-container">
-    
-    {{ $taxonomies := .Site.Taxonomies }}
-    
-    {{ range $taxonomyName, $taxonomy := $taxonomies }}
-      <div class="taxonomy-section">
-        <h2>{{ $taxonomyName | title }}</h2>
-        <ul>
-          {{ range $term, $pages := $taxonomy }}
+    <main
+      class="container mx-auto grid grid-cols-5 border-r-1 border-solid border-gray-300 min-h-screen"
+    >
+      <div class="col-span-1 h-full">{{ partial "nav.html" .}}</div>
+      <div class="grid col-span-4">
+        <div class="col-span-1">
+          <div
+            class="flex sticky top-0 pr-10 items-center justify-end py-4 bg-opacity-50 backdrop-blur-3xl gap-6 px-3 border-b-1 border-solid border-gray-300 bg-white"
+          >
+            <a
+              href="/about"
+              class="text-anchor-hover text-black text-opacity-70 hover:text-opacity-100"
+            >
+              About
+            </a>
+            <a
+              href="/resources"
+              class="text-anchor-hover text-black text-opacity-70 hover:text-opacity-100"
+            >
+              Resources
+            </a>
+            <a
+            target="_blank"
+              href="https://twitter.com/home"
+              class="text-anchor-hover text-black text-opacity-70 hover:text-opacity-100"
+            >
+              Twitter
+            </a>
+          </div>
+          <ul class="space-y-6 p-6">
+            {{ range .Pages }}
             <li>
-              <a href="/{{ $taxonomyName }}/{{ $term | urlize }}/">
-                {{ $term | title }} ({{ len $pages }})
-              </a>
+              {{ partial "post.html" .}}
             </li>
-          {{ end }}
-        </ul>
+            {{ end }}
+          </ul>
+          {{ partial "footer.html" .}}
+        </div>
+       
       </div>
-    {{ end }}
-  </div>
-  <h1>range of experience</h1>
-  <ul>
-    {{ $jobs := where .Site.RegularPages "Type" "experience" }}
-    {{ range $jobs }}
-   <li>
-    <a href="{{ .Permalink }}">{{ .LinkTitle  }}</a>
-   </li>
-
-    {{ end }}
-  </ul>
+    </main>
   </body>
 </html>
-
-
-
