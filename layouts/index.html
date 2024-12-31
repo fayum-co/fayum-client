@@ -17,12 +17,7 @@
             >
               About
             </a>
-            <a
-              href="/resources"
-              class="text-anchor-hover text-black text-opacity-70 hover:text-opacity-100"
-            >
-              Resources
-            </a>
+           
             <a
             target="_blank"
               href="https://twitter.com/home"
@@ -31,12 +26,12 @@
               Twitter
             </a>
           </div>
-          <ul class="space-y-6 p-6">
-            {{ range .Pages }}
-            <li>
-              {{ partial "post.html" .}}
-            </li>
-            {{ end }}
+            <ul class="space-y-6 p-6">
+              {{ range where .Pages "Params.ispage" "!=" "no" }}
+                <li>
+                  {{ partial "post.html" . }}
+                </li>
+              {{ end }}
           </ul>
           {{ partial "footer.html" .}}
         </div>

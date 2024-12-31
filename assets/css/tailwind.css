@@ -31,3 +31,9 @@
   @apply hover:underline underline-offset-4 hover:text-green outline-offset-4
 }
 
+
+
+.page-height {
+  min-height: 100vh ;
+  min-height: 100lvh !important;
+}

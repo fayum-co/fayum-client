@@ -682,6 +682,10 @@ video {
   min-height: 24px;
 }
 
+.min-h-\[400px\] {
+  min-height: 400px;
+}
+
 .min-h-\[48px\] {
   min-height: 48px;
 }
@@ -702,12 +706,20 @@ video {
   width: 100%;
 }
 
+.w-10\/12 {
+  width: 83.333333%;
+}
+
 .min-w-\[24px\] {
   min-width: 24px;
 }
 
 .min-w-\[48px\] {
   min-width: 48px;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
 }
 
 .max-w-\[24px\] {
@@ -722,8 +734,20 @@ video {
   max-width: 48px;
 }
 
+.max-w-screen-md {
+  max-width: 768px;
+}
+
 .max-w-screen-xl {
   max-width: 1280px;
+}
+
+.max-w-screen-sm {
+  max-width: 640px;
+}
+
+.max-w-screen-lg {
+  max-width: 1024px;
 }
 
 .flex-1 {
@@ -830,6 +854,12 @@ video {
   gap: 0px;
 }
 
+.space-y-10 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
+}
+
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -929,6 +959,10 @@ video {
      object-position: center;
 }
 
+.p-10 {
+  padding: 2.5rem;
+}
+
 .p-6 {
   padding: 1.5rem;
 }
@@ -1023,6 +1057,10 @@ video {
   padding-top: 0.625rem;
 }
 
+.pt-20 {
+  padding-top: 5rem;
+}
+
 .pt-3 {
   padding-top: 0.75rem;
 }
@@ -1035,6 +1073,10 @@ video {
   padding-top: 1.5rem;
 }
 
+.pr-3 {
+  padding-right: 0.75rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1042,6 +1084,11 @@ video {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-4xl {
@@ -1091,6 +1138,10 @@ video {
 
 .leading-\[1\.8\] {
   line-height: 1.8;
+}
+
+.leading-loose {
+  line-height: 2;
 }
 
 .leading-none {
@@ -1247,6 +1298,11 @@ html, body {
   text-decoration-line: underline;
 }
 
+.page-height {
+  min-height: 100vh ;
+  min-height: 100lvh !important;
+}
+
 .hover\:border-gray-900:hover {
   --tw-border-opacity: 1;
   border-color: rgb(17 24 39 / var(--tw-border-opacity, 1));
@@ -1305,4 +1361,3 @@ html, body {
     padding-right: 2.5rem;
   }
 }
-

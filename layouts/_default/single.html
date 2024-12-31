@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   {{ partial "header.html" .}} {{ partial "seo.html" }}
-  <body>
+  <body class="page-height">
     <main
-      class="container max-w-screen-xl mx-auto border-r-1 border-l-1 border-solid border-gray-300 min-h-screen"
+      class="container flex flex-col  max-w-screen-xl mx-auto border-r-1 border-l-1 border-solid border-gray-300 min-h-screen"
     >
       <div
-        class="flex items-center sticky top-0 gap-3 z-[100] justify-between bg-white border-b-1 border-solid border-gray-300 py-4 px-4 md:px-6 lg:px-10"
+        class="flex flex-0 items-center sticky top-0 gap-3 z-[100] justify-between bg-white border-b-1 border-solid border-gray-300 py-4 px-4 md:px-6 lg:px-10"
       >
         <a href="/">
           <span
@@ -25,12 +25,6 @@
             About
           </a>
           <a
-            href="/resources"
-            class="text-anchor-hover text-black text-opacity-70 hover:text-opacity-100"
-          >
-            Resources
-          </a>
-          <a
             target="_blank"
             href="https://twitter.com/home"
             class="text-anchor-hover text-black text-opacity-70 hover:text-opacity-100"
@@ -39,65 +33,88 @@
           </a>
         </div>
       </div>
+      {{ if .Params.title  }}
       <div class="grid grid-cols-7 z-10">
-        <div class="col-span-5 h-full">{{ partial "job_post_detailed" .}}</div>
-        <div
-          class="h-full p-8 col-span-2 border-l-1 border-solid border-gray-300"
-        >
-          <div class="sticky top-24">
-            <div class="!pt-14 flex flex-col gap-6">
+      <div class="col-span-5 h-full">{{ partial "job_post_detailed" .}}</div>
+      <div
+        class="h-full p-8 col-span-2 border-l-1 border-solid border-gray-300"
+      >
+        <div class="sticky top-24">
+          <div class="!pt-14 flex flex-col gap-6">
+            <div
+              class="min-h-[48px] max-h-[48px] min-w-[48px] max-w-[48px] bg-gray-50 border-1 border-solid border-gray-300 basis-12 grow-0 shrink-0 rounded-full overflow-hidden"
+            >
+              {{ if .Params.company.logo }} {{ with .Params.company.logo }}
+              <img
+                src="{{ $.Params.company.logo }}"
+                alt="{{ $.Params.company.name }} Logo"
+                class="w-full h-full object-cover object-center"
+              />
+              {{ end }} {{ else }}
               <div
-                class="min-h-[48px] max-h-[48px] min-w-[48px] max-w-[48px] bg-gray-50 border-1 border-solid border-gray-300 basis-12 grow-0 shrink-0 rounded-full overflow-hidden"
+                class="grid place-content-center place-items-center h-full w-full min-h-[48px] max-h-[48px] min-w-[48px] max-w-[48px]"
               >
-                {{ if .Params.company.logo }} {{ with .Params.company.logo }}
-                <img
-                  src="{{ $.Params.company.logo }}"
-                  alt="{{ $.Params.company.name }} Logo"
-                  class="w-full h-full object-cover object-center"
-                />
-                {{ end }} {{ else }}
-                <div
-                  class="grid place-content-center place-items-center h-full w-full min-h-[48px] max-h-[48px] min-w-[48px] max-w-[48px]"
-                >
-                  <span class="text-gray-900 font-bold text-2xl">
-                    {{ if $.Params.company.name }} {{ strings.Substr
-                    $.Params.company.name 0 1 }} {{ else }} {{ strings.Substr
-                    $.Title 0 1 }} {{ end }}
-                  </span>
-                </div>
-                {{ end }}
+                <span class="text-gray-900 font-bold text-2xl">
+                  {{ if $.Params.company.name }} {{ strings.Substr
+                  $.Params.company.name 0 1 }} {{ else }} {{ strings.Substr
+                  $.Title 0 1 }} {{ end }}
+                </span>
               </div>
-              <div>
-                <div class="flex flex-col gap-2 pl-[4px]">
-                  <span class="text-2xl font-medium text-black"
-                    >{{ .Params.company.name }}</span
-                  >
-                  <span class="text-sm font-normal text-opacity-90 text-black"
-                    >{{ .Params.company.sector }}</span
-                  >
-                  {{ if .Params.company.description}} 
-                    <span
-                      class="text-sm font-normal text-opacity-70 text-black leading-relaxed pt-3"
-                    >{{ if .Params.company.description }} {{
-                      .Params.company.description }} {{ end }}
-                    </span>
-                  {{ end }}
-                </div>
-              </div>
-              {{ if .Params.company.url }}
-                <div>
-                  <a target="_blank" href="{{ .Params.company.url}}" class="underline underline-offset-4 text-base text-black flex items-center gap-1 hover:text-green transition-colors duration-200 ease-in-out group">
-                    Visit site
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#171717" class="size-4 group-hover:opacity-100 opacity-0 transition-all duration-200 ease-in-out">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                    </svg>
-                  </a>
-                </div>
               {{ end }}
             </div>
+            <div>
+              <div class="flex flex-col gap-2 pl-[4px]">
+                <span class="text-2xl font-medium text-black"
+                  >{{ .Params.company.name }}</span
+                >
+                <span class="text-sm font-normal text-opacity-90 text-black"
+                  >{{ .Params.company.sector }}</span
+                >
+                {{ if .Params.company.description}} 
+                  <span
+                    class="text-sm font-normal text-opacity-70 text-black leading-relaxed pt-3"
+                  >{{ if .Params.company.description }} {{
+                    .Params.company.description }} {{ end }}
+                  </span>
+                {{ end }}
+              </div>
+            </div>
+            {{ if .Params.company.url }}
+              <div>
+                <a target="_blank" href="{{ .Params.company.url}}" class="underline underline-offset-4 text-base text-black flex items-center gap-1 hover:text-green transition-colors duration-200 ease-in-out group">
+                  Visit site
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#171717" class="size-4 group-hover:opacity-100 opacity-0 transition-all duration-200 ease-in-out">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+                </a>
+              </div>
+            {{ end }}
           </div>
         </div>
       </div>
+      </div>
+      {{ else }}
+      <div  class=" flex-1 ">
+        {{ if .Params.type }}
+            {{ if eq .Params.type "about_us_standalone" }}
+                {{ partial "about_us_page.html" . }}
+                {{ else if eq .Params.type "terms_of_services_standalone" }}
+                {{ partial "terms_of_services.html" . }}
+                {{ else if eq .Params.type "contact_us_standalone" }}
+                {{ partial "contact_us.html" . }}
+            {{ else }}
+            <div class="pt-20 min-h-[400px] flex-1  ">
+              {{ partial "no_results" (dict "message" "Page not found" "otherContext" .) }}
+            </div>
+            {{ end }}
+          {{ else }}
+            <div class="pt-20 min-h-[400px] flex-1 ">
+              {{ partial "no_results" (dict "message" "Page not found" "otherContext" .) }}
+            </div>
+        {{ end }}
+      </div>
+      {{ partial "footer.html" .}}
+      {{ end }}
     </main>
   </body>
 </html>
